@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int examRush(int[] tm, int t) {
+        Arrays.sort(tm);
+        int i=0;
+        int counter=0;
+        
+        while(t > 0){
+            
+            if(t >= tm[i]){
+                t=t-tm[i];
+                counter++;
+                i++;
+            }else{
+                break;
+            }
+            
+        }
+        
+        return counter;
+        
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int t = in.nextInt();
+        int[] tm = new int[n];
+        for(int tm_i = 0; tm_i < n; tm_i++){
+            tm[tm_i] = in.nextInt();
+        }
+        int result = examRush(tm, t);
+        System.out.println(result);
+        in.close();
+    }
+}
